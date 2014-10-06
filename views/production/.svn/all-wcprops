@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/aia/!svn/ver/88/views/production
+END
+form_production.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/aia/!svn/ver/88/views/production/form_production.php
+END
+list.php
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/aia/!svn/ver/88/views/production/list.php
+END
+form_list_agent.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/aia/!svn/ver/76/views/production/form_list_agent.php
+END
+form_list_agent_edit.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/aia/!svn/ver/76/views/production/form_list_agent_edit.php
+END
+form_add_production.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/aia/!svn/ver/88/views/production/form_add_production.php
+END
+form_list_agent_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/aia/!svn/ver/79/views/production/form_list_agent_view.php
+END

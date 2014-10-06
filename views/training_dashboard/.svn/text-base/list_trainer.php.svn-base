@@ -1,0 +1,116 @@
+
+            	<?php
+                if(isset($_GET['did']) && $_GET['did'] == 2){
+                ?>
+                <section class="content_new">
+                   
+                <div class="alert alert-info alert-dismissable">
+                <i class="fa fa-check"></i>
+                <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
+                <b>Sukses !</b>
+               Simpan Berhasil
+                </div>
+           		
+                </section>
+                <?php
+				}else if(isset($_GET['ded']) && $_GET['ded'] == 1){
+                ?>
+                <section class="content_new">
+                 
+                <div class="alert alert-info alert-dismissable">
+                <i class="fa fa-check"></i>
+                <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
+                <b>Maaf !</b>
+                  Trainer tidak boleh lebih dari satu
+                </div>
+                
+                </section>
+                <?php
+				}else if(isset($_GET['del']) && $_GET['del'] == 1){
+                ?>
+                <section class="content_new">
+                  
+                <div class="alert alert-info alert-dismissable">
+                <i class="fa fa-check"></i>
+                <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
+                <b>Sukses !</b>
+                  Delete data trainer Berhasil
+                </div>
+           
+                </section>
+                <?php
+                }else if(isset($_GET['err']) && $_GET['err'] == 1){
+                ?>
+                <section class="content_new">
+                   
+                <div class="alert alert-info alert-dismissable">
+                <i class="fa fa-check"></i>
+                <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
+                <b>Simpan gagal !</b>
+              Data  Trainer telah terinput
+                </div>
+           
+                </section>
+                <?php
+                }
+				?>
+
+            
+                            
+                            
+                            <div class="box">
+                             
+                                <div class="box-body2 table-responsive">
+                                    <table id="example1" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                               <th width="5%">No</th>
+                                               <th>Trainer Type</th>
+                                                <th>Trainer Code</th>
+                                                <th>Trainer name</th> 
+                                              
+                                                <th width="20%">Config</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                           $no = 1;
+                                            while($row = mysql_fetch_array($query_trainer_view)){
+												if($row['user_type_id'] == '2'){
+													$status = 'ADM'; 
+												}else { 
+													$status = 'Premier Builder';
+												}
+                                            ?>
+                                            <tr>
+                                            	<td><?= $no?></td>
+                                                <td><?= $status?></td>
+                                                <td><?= $row['user_code']?></td>
+                                                <td><?= $row['user_name']?></td>
+                                              
+                                                <td style="text-align:center;">
+                                                 <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['0']; ?>,'training_dashboard.php?page=delete_trainer&id=<?=$id?>&id_trainer=')" class="btn btn-danger" ><i class="fa fa-trash-o"></i></a>
+                                                </td>
+
+                                            </tr>
+                                            <?php
+											$no++;
+                                            }
+                                            ?>
+
+                                           
+                                          
+                                        </tbody>
+                                          <tfoot>
+                                            <tr>
+                              				  <th colspan="5">
+                                              <?php if($cek_total_trainer == '0'){
+												 ?>
+                              <a href="<?=$add_button ?>" class="btn btn-danger " >Add</a></th>
+											<?php } ?>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+									   </div><!-- /.box-body -->
+                            </div><!-- /.box -->
+                      

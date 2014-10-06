@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 28
+/svn/aia/!svn/ver/157/models
+END
+logistic_model.php
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/aia/!svn/ver/155/models/logistic_model.php
+END
+rdh_model.php
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/aia/!svn/ver/134/models/rdh_model.php
+END
+unit_model.php
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/aia/!svn/ver/10/models/unit_model.php
+END
+product_model.php
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/aia/!svn/ver/91/models/product_model.php
+END
+training_dashboard_model.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/aia/!svn/ver/167/models/training_dashboard_model.php
+END
+absensi_model.php
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/aia/!svn/ver/167/models/absensi_model.php
+END
+feedback_model.php
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/aia/!svn/ver/74/models/feedback_model.php
+END
+trainer_ext_model.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/aia/!svn/ver/15/models/trainer_ext_model.php
+END
+production_model.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/aia/!svn/ver/88/models/production_model.php
+END
+transaction_type_model.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/aia/!svn/ver/124/models/transaction_type_model.php
+END
+update_ars_model.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/aia/!svn/ver/167/models/update_ars_model.php
+END
+admin_model.php
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/aia/!svn/ver/83/models/admin_model.php
+END
+report_event_summary_model.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/aia/!svn/ver/151/models/report_event_summary_model.php
+END
+edit_admin_model.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/aia/!svn/ver/83/models/edit_admin_model.php
+END
+branch_model.php
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/aia/!svn/ver/21/models/branch_model.php
+END
+agent_model.php
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/aia/!svn/ver/167/models/agent_model.php
+END
+global_model.php
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/aia/!svn/ver/87/models/global_model.php
+END
+travel_transaction_model.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/aia/!svn/ver/155/models/travel_transaction_model.php
+END
+feedback_answer_model.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/aia/!svn/ver/135/models/feedback_answer_model.php
+END
+trainer_model.php
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/aia/!svn/ver/146/models/trainer_model.php
+END
+pbd_model.php
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/aia/!svn/ver/15/models/pbd_model.php
+END
+agency_model.php
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/aia/!svn/ver/4/models/agency_model.php
+END
+login_model.php
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/aia/!svn/ver/35/models/login_model.php
+END

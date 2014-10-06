@@ -1,0 +1,191 @@
+<?php
+
+function select_unit(){
+	$query = mysql_query("select * from units
+			");
+	return $query;
+}
+
+function read_id($id){
+	$query = mysql_query("SELECT a.*, b.unit_name
+							FROM  transactions a
+							JOIN units b on a.unit_id = b.unit_id
+ 							WHERE  a.transaction_id = '$id'");
+	$result = mysql_fetch_object($query);
+	return $result;
+}
+
+function create($data){
+	mysql_query("insert into transactions values(".$data.")");
+}
+
+function create_date2($id, $date2){
+	mysql_query("insert into transaction_date2 values('','$id','$date2')");
+}
+
+function update($data, $id){
+	mysql_query("update transactions set ".$data." where transaction_id = '$id'");
+}
+
+function delete($id){
+	mysql_query("delete from users  where user_id = '$id'");
+}
+function detail_read_id($date,$unit_id){
+	$query = mysql_query("SELECT a.*, b.unit_name
+							FROM  transactions a
+							JOIN units b on a.unit_id = b.unit_id
+ 							WHERE  a.transaction_date = '$date'
+ 							and transaction_approved_status = '1' 
+							AND a.unit_id = '$unit_id'");
+	return $query;
+}
+function detail_read_id2($date2,$unit_id){
+	$query = mysql_query("SELECT a.*, b.unit_name
+							FROM  transactions a
+							JOIN units b on a.unit_id = b.unit_id
+ 							WHERE  a.transaction_date2 = '$date2'
+ 							and transaction_approved_status = '1' 
+							AND a.unit_id = '$unit_id'");
+	return $query;
+}
+function delete_trainer($id){
+	mysql_query("delete from transaction_trainers_tmp  where  	transaction_trainers_tmp_id 	 = '$id'");
+}
+function delete_agent($id){
+	
+	$query=mysql_query("SELECT agent_id FROM  transaction_agents_tmp where  transaction_agents_tmp_id 	 = '$id'");
+	$agent=mysql_fetch_array($query);
+	mysql_query("UPDATE agents SET agent_active_status = '1' where agent_id='$agent[0]'");
+	mysql_query("delete from transaction_agents_tmp  where  transaction_agents_tmp_id 	 = '$id'");
+}
+
+function select_not_approved(){
+	$query = mysql_query("SELECT a.*, b.unit_name
+							FROM  transactions a
+							JOIN units b on a.unit_id = b.unit_id
+ 							WHERE  transaction_approved_status = '0'");
+	return $query;
+}
+
+function read_trainer_tmp($id,$ses_id){
+	$query = mysql_query("select a.*, b.*
+							from transaction_trainers_tmp a
+							join users b on a.user_id = b.user_id where a.session_id='$ses_id' and transaction_id = $id");
+	return $query;
+}
+
+function read_trainer_view($id){
+	$query = mysql_query("select a.*, b.*
+							from transaction_trainers a
+							join users b on a.user_id = b.user_id where transaction_id = $id");
+	return $query;
+}
+
+function create_trainer_tmp($data){
+	mysql_query("insert into transaction_trainers_tmp values(".$data.")");
+}
+
+function read_agent_tmp($id,$ses_id){
+	$query = mysql_query("select a.*, b.*
+							from transaction_agents_tmp a
+							join agents b on a.agent_id = b.agent_id where a.session_id='$ses_id' and a.transaction_id = '$id'");
+	return $query;
+}
+
+function read_agent_view($id){
+	$query = mysql_query("select a.*, b.*
+							from transaction_agents a
+							join agents b on a.agent_id = b.agent_id where a.transaction_id = '$id'");
+	return $query;
+}
+function count_agent_tmp_excel($sess_id,$user_id){
+	$query = mysql_query("SELECT  agent_id_tmp_excel FROM agents_tmp_excel WHERE session_id = '$sess_id'  AND user_id = '$user_id' AND input_type_id='3'");
+	$result = mysql_num_rows($query);
+	return $result;
+
+}
+function count_agent_clean($sess_id,$id){
+	$query = mysql_query("SELECT  transaction_agents_tmp_id  FROM transaction_agents_tmp WHERE session_id = '$sess_id'  AND  transaction_id = '$id'");
+	$result = mysql_num_rows($query);
+	return $result;
+
+}
+function cek_status($agent_id){
+	$query = mysql_query("SELECT agent_active_status from agents where agent_id='".$agent_id."'");
+	$result = mysql_fetch_array($query);
+	return $result;
+
+}
+function delete_agent_tmp_excel($sess_id,$user_id){
+	mysql_query("delete from  agents_tmp_excel  WHERE session_id = '$sess_id'  AND user_id = '$user_id' AND input_type_id='3'");
+}	
+	
+function select_agent_tmp_excel($sess_id,$user_id){	
+	$query = mysql_query("SELECT agent_id_tmp_excel, 
+								agent_code_tmp_excel,
+								agent_name_tmp_excel,
+								agent_ktp_number_tmp_excel,
+								city_id_tmp_excel,
+								agent_active_status_tmp_excel 
+							FROM agents_tmp_excel WHERE session_id = '$sess_id'  AND user_id = '$user_id' AND input_type_id='3'");
+	return $query;
+}
+function create_agent_tmp($data){
+	mysql_query("insert into  transaction_agents_tmp values(".$data.")");
+}
+
+function create_trainer($id,$ses_id){
+	$query = mysql_query("select a.*, b.*
+							from transaction_trainers_tmp a
+							join users b on a.user_id = b.user_id where a.session_id='$ses_id' and transaction_id = $id");
+	while($row_trainer=mysql_fetch_array($query)){
+		mysql_query("insert into transaction_trainers values('','".$row_trainer['transaction_id']."','".$row_trainer['user_id']."')");
+		mysql_query("DELETE from transaction_trainers_tmp WHERE  transaction_trainers_tmp_id = '".$row_trainer['transaction_trainers_tmp_id']."'");
+	}
+}
+
+function create_agent($id,$ses_id){
+	$query = mysql_query("select a.*, b.*
+							from transaction_agents_tmp a
+							join  agents b on a.agent_id = b.agent_id where a.session_id='$ses_id' and transaction_id = $id");
+	while($create_agent=mysql_fetch_array($query)){
+		mysql_query("insert into  transaction_agents values('','".$create_agent['transaction_id']."','".$create_agent['agent_id']."')");
+		mysql_query("DELETE from transaction_agents_tmp WHERE  transaction_agents_tmp_id = '".$create_agent['transaction_agents_tmp_id']."'");
+		mysql_query("UPDATE agents SET agent_active_status = '0' WHERE agent_id = '".$create_agent['agent_id']."'"); 
+
+}
+}
+
+function cek_transaction_trainer_tmp($ses_id,$id,$trainer_id){
+	$query = mysql_query("SELECT transaction_trainers_tmp_id
+FROM transaction_trainers_tmp  WHERE session_id = '$ses_id' AND transaction_id = '$id' AND user_id = '$trainer_id' ");
+	$result = mysql_num_rows($query);
+	return $result;
+
+}
+function cek_transaction_agent_tmp($ses_id,$id,$id_agent){
+	$query = mysql_query("SELECT transaction_agents_tmp_id FROM  transaction_agents_tmp WHERE session_id = '$ses_id' AND transaction_id = '$id' AND agent_id = '$id_agent' ");
+	$result = mysql_num_rows($query);
+	return $result;
+
+}
+
+function cek_total_trainer_tmp($ses_id,$id){
+	$query = mysql_query("SELECT transaction_trainers_tmp_id
+						  FROM transaction_trainers_tmp  WHERE session_id = '$ses_id' AND transaction_id = '$id' ");
+	$result = mysql_num_rows($query);
+	return $result;
+
+}
+
+
+function create_sign_by_id($id, $user_id){
+	mysql_query("update transactions set sign_by_id = '$user_id', transaction_status = '1' where transaction_id = '$id' ");
+}
+
+function upload_event($data){
+	mysql_query("insert into  transactions values($data)");
+}
+
+
+?>

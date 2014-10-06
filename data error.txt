@@ -1,0 +1,18 @@
+total data dr excel = 1843
+
+masuk  = 1831
+
+tanpa nomer ktp = 12
+
+data yang sama = 148
+data akhir yag masuk  = 1683
+
+
+
+
+
+
+data clean or not clean = 701
+lain clean or not clean = 1,130 
+tipe cpd = 8
+kosong = 1.121

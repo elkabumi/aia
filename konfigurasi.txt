@@ -1,0 +1,26 @@
+user name : birdflys_aia
+password  : birdflys_4i4
+database  : birdflys_aia
+
+config cpanel
+Login Details
+Username: birdflys
+Password: sh03s123
+Control Panel URL: http://180.235.151.73:2082/
+
+didik_hadi@yahoo.com
+
+
+
+--------------------------------------------------------------------
+url : id-premieracademy.com/cpanel
+
+	username : idpremieracademy
+
+	password : menarapalma20
+------------------------------------------------------------------------
+connection
+database :idpremie_aia
+username :idpremie_use
+pass : idpremie_p4s
+pass :txTLl69pd)et
